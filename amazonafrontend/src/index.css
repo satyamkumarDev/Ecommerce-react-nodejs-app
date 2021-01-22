@@ -65,6 +65,8 @@ a.brand{
 }
 img{
   border-radius: 0.5rem;
+  max-width: 28rem;
+  width: 100%;
 }
 img.small{
   max-width: 5rem;
@@ -72,6 +74,10 @@ img.small{
 }
 img.medium{
   max-width: 29rem;
+  width: 100%;
+}
+img.large{
+  max-width: 28rem;
   width: 100%;
 }
 .card{
@@ -149,9 +155,7 @@ button.primary{
 button.block{
   width: 100%;
 }
-img.large{
-  width: 50%;
-}
+
 /* Alert */
 
 .success{
