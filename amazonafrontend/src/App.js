@@ -11,6 +11,9 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import PrivateRoute from './component/PrivateRoute';
 function App() {
 
   const dispatch=useDispatch()
@@ -39,7 +42,9 @@ function App() {
                 <div className="dropdown">
                 <Link to="#">{userInfo.name}<i className="fa fa-caret-down"></i></Link>
                 <ul className="dropdown-content">
-                  <Link to="/signin" onClick={signoutHandler}> Sign Out</Link>
+                  <li><Link to="/profile">User Peofile</Link></li>
+                  <li> <Link to="/orderhistory">Order History</Link></li>
+                  <li><Link to="/signin" onClick={signoutHandler}> Sign Out</Link></li>
                 </ul>
                 </div>
               ) : (
@@ -47,6 +52,28 @@ function App() {
                
               )
             }
+
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">Admin <i className="fa fa-caret-down"></i></Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlists">Users</Link>
+                  </li>
+
+                </ul>
+
+              </div>
+            )}
         </div>
     </header>
     <main>
@@ -58,6 +85,8 @@ function App() {
       <Route path="/payment" component={PaymentMethodScreen}></Route>
       <Route path="/placeorder" component={PlaceOrderScreen}></Route>
       <Route path="/order/:id" component={OrderScreen}></Route>
+      <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+      <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
       <Route path="/" component={HomeScreen} exact></Route>
       
     </main>
