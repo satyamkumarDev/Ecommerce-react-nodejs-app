@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Rating from '../component/Ratings';
+// import Rating from '../component/Ratings';
+import StarRatings from 'react-star-ratings';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { productDetailsLists } from '../actions/ProductActions';
@@ -41,11 +42,17 @@ export default function ProductScreen(props){
                             <h1>{product.name}</h1>
                         </li>
                         <li>
-                            <Rating
+                            {/* <Rating
                             rating={product.rating}
                             numReviews={product.numReviews}
                             >
-                            </Rating>
+                            </Rating> */}
+                            <StarRatings 
+                            rating={product.rating}
+                            numReviews={product.numReviews}
+                            starDimension="30px"
+                            starRatedColor="rgb(240,192,64)"
+                            />
                         </li>
                         <li>
                             Price: ${product.price}

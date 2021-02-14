@@ -3,6 +3,7 @@ import { PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS,
 
 export const listProducts=()=>async (dispatch)=>{
     dispatch({
+
         type:PRODUCT_LIST_REQUEST
     });
     try{

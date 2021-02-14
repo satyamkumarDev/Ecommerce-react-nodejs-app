@@ -1,9 +1,14 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import data from '../data.js';
 import Product from '../models/productModel.js';
-
+import data from '../data.js';
 const productRouter=express.Router();
+
+// api to create products in database
+productRouter.get('/seed', expressAsyncHandler(async(req, res)=>{
+    const createdProducts=await Product.insertMany(data.products);
+    res.send({createdProducts});
+}));
 
 // api for product list to send it on frontend
 productRouter.get('/', expressAsyncHandler(async(req, res)=>{
@@ -11,12 +16,8 @@ productRouter.get('/', expressAsyncHandler(async(req, res)=>{
     res.send(products)
 }));
 
-// api to create products in database
-productRouter.get('/seed', expressAsyncHandler(async(req, res)=>{
-    await Product.remove({});
-    const createdProducts=await Product.insertMany(data.products);
-    res.send({createdProducts});
-}));
+
+
 
 // api for product details to send on frontend
 productRouter.get('/:id', expressAsyncHandler(async(req, res)=>{

@@ -57,8 +57,8 @@ products:[
 },
 {
    
-    name:'Nike New Slim ',
-    category:'Shirts',
+    name:'Nike New Slim Pants',
+    category:'Pants',
     image:'/images/p4.jpg',
     price:80,
     countInStock:20,
@@ -69,24 +69,24 @@ products:[
 },
 {
    
-    name:'SK Shirt',
-    category:'Shirts',
+    name:'Puma pants',
+    category:'Pants',
     image:'/images/p5.jpg',
     price:300,
     countInStock:0,
-    brand:'SK',
+    brand:'Puma',
     rating:5,
     numReviews:10,
     description:'high quality product',
 },
 {
    
-    name:'icon shirts',
-    category:'Shirts',
+    name:'Adidas Slim Pants',
+    category:'Pants',
     image:'/images/p6.jpg',
     price:160,
     countInStock:5,
-    brand:'icon',
+    brand:'Adidas',
     rating:4.5,
     numReviews:10,
     description:'high quality product',

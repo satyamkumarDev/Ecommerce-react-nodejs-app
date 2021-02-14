@@ -37,6 +37,7 @@ app.get('/', (req,res) =>{
     res.send('server is ready!');
 });
 
+
 app.use((err, req, res, next)=>{
     res.status(500).send({message:err.message});
 })

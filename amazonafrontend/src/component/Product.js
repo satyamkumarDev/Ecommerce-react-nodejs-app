@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Rating from './Ratings'
+// import Rating from './Ratings'
+import StarRatings from 'react-star-ratings';
 export default function Product(props){
     const {product}=props;
     return(
@@ -12,7 +13,14 @@ export default function Product(props){
                <Link to={`/product/${product._id}`}>
                    <h2>{product.name}</h2>
                </Link>
-               <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
+               <StarRatings 
+                            rating={product.rating}
+                            numReviews={product.numReviews}
+                            starDimension="30px"
+                            starSpacing="10px"
+                            starRatedColor="rgb(240,192,64)"
+                            />
+               {/* <Rating rating={product.rating} numReviews={product.numReviews}></Rating> */}
                <div className="price">
                   ${product.price}
                </div>
