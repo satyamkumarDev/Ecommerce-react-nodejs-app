@@ -74,10 +74,10 @@ userRouter.post('/resetPassword', expressAsyncHandler(async(req,res)=>{
           type: "OAuth2",
           user: "satyamvatsk@gmail.com",
           pass: "",
-          clientId: "904881742347-stucs4tkirbuiap5tv0sjbo2407rbg5h.apps.googleusercontent.com",
-          clientSecret: "KqSVxhUN_26IL7pGtNomtmTL",
-          refreshToken: "1//04_IPMzYNLtVSCgYIARAAGAQSNwF-L9Irw8ShzBlym7Vtdl5dZ099A8SJA3nQC0cIS0xbX7VKANKwpATdMLEtxF7drrTbtRZGXJQ",
-          accessToken: "ya29.a0AfH6SMAI9M07yWM9J3M7M4Jq3gUSCPsStaaIvXdEfO0kWkHrOXCmrFzioLErOXM5hAVdsL7P8C76Khx_MmzRzKe7LXw5FqhqYkkOKG1HIJvZFoIjWmgsJsEOGk_RIrmLdr9R3bR08_2ucl5gqE92nTRd_SDH"
+          clientId:process.env.OAUTH_CLIENTID,
+          clientSecret: process.env.OAUTH_CLIENT_SECRET,
+          refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+          accessToken: process.env.OAUTH_ACCESS_TOKEN
         },
        });
        

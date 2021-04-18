@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
-import Axios from 'axios';
-import LoadingBox from '../component/LoadingBox';
-import MessageBox from '../component/MessageBox';
+import React, { useRef, useState } from 'react';
+// import {useDispatch, useSelector} from 'react-redux';
+// import {Link} from 'react-router-dom';
+// import Axios from 'axios';
+// import LoadingBox from '../component/LoadingBox';
+// import MessageBox from '../component/MessageBox';
 
 export default function ResetPasswordScreen(props){
     const [email, setEmail]=useState(' ');
-    
+    const resetForm = useRef(null)
     
         const submitHandler = async (e) => {
             e.preventDefault();
@@ -30,19 +30,15 @@ export default function ResetPasswordScreen(props){
                 }
               })
               
-          
+              resetForm.current.reset();
+
        
     }
 
-    useEffect(()=>{
-      
-      
-
-
-    }, [])
+    
     return(
         <div>
-            <form className="form" onSubmit={submitHandler}>
+            <form className="form" onSubmit={submitHandler} ref={resetForm}>
                 <div >
                     <h1>
                        Reset Password

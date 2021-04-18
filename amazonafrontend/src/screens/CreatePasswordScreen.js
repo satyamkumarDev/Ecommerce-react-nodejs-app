@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, {useRef, useState } from 'react';
+// import {useDispatch, useSelector} from 'react-redux';
 import {Link, useParams} from 'react-router-dom';
-import { signin } from '../actions/userActions';
-import LoadingBox from '../component/LoadingBox';
-import MessageBox from '../component/MessageBox';
+// import { signin } from '../actions/userActions';
+// import LoadingBox from '../component/LoadingBox';
+// import MessageBox from '../component/MessageBox';
 
 export default function CreatePasswordScreen(props){
+  const resetForm = useRef(null)
     const [password, setPassword]=useState(' ');
     const [confirmPassword, setconfirmPassword]=useState(' ');
     const {token}=useParams()
@@ -23,20 +24,22 @@ export default function CreatePasswordScreen(props){
             .then((res) => res.json())
             .then(async (res) => {
               const resData = await res;
-              console.log(resData);
               if (resData.status === "success") {
                 alert("Message Sent");
               } else if (resData.status === "fail") {
                 alert("Message failed to send");
               }
             })
-       
+            resetForm.current.reset();
+            props.history.push('/signin')
+
+
     }
 
    
     return(
         <div>
-            <form className="form" onSubmit={submitHandler}>
+            <form className="form" onSubmit={submitHandler}  ref={resetForm}>
                 <div >
                     <h1>
                        Reset Password
