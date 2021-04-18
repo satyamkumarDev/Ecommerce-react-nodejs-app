@@ -43,6 +43,7 @@ export default function CartScreen(props){
                                     <div className="min-30">
                                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </div>
+                                    
                                     <div>
                                         <select value={item.qty}
                                          onChange={(e)=>
@@ -54,6 +55,7 @@ export default function CartScreen(props){
                                                             <option key={x+1} value={x+1}>{x+1}</option>
                                                         ))}
                                         </select>
+                                        
                                     </div>
                                     <div>
                                         ${item.price}

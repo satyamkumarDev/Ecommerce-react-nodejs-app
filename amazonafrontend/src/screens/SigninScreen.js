@@ -49,6 +49,12 @@ export default function SigninScreen(props){
                 <div>
                     <label />
                     <div>
+                        <Link to={`/forgot-password`}>Forgot Password?</Link>
+                    </div>
+                    </div>
+                <div>
+                    <label />
+                    <div>
                         New customer? {' '}
                         <Link to={`/register?redirect=${redirect}`}>Create your account</Link>
                     </div>

@@ -29,6 +29,7 @@ export const orderDetailsReducer=(state={loading:true}, action)=>{
     }
 }
 
+
 export const orderPayReducer=(state = {loading : false, error : {}, success:true}, action)=>{
     switch(action.type){
         case ORDER_PAY_REQUEST:

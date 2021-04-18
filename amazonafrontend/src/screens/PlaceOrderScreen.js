@@ -24,7 +24,6 @@ export default function PlaceOrderScreen(props){
     const placeOrderHandler=()=>{
         //TODO LIST
         dispatch(createOrder({...cart, orderItems: cart.cartItems}));
-
     }
 
     useEffect(()=>{
@@ -123,6 +122,7 @@ export default function PlaceOrderScreen(props){
                             <li>
                                 <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length ===0} className="primary block">Place Order</button>
                             </li>
+                            
                             {loading && <LoadingBox></LoadingBox>}
                             {error && <MessageBox variant="danger">{error}</MessageBox>}
                         </ul>

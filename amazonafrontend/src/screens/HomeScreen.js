@@ -11,7 +11,7 @@ export default function HomeScreen(){
     useEffect(()=>{
         dispatch(listProducts());
     },[dispatch])
-    return(
+    return( 
         <div>
             {loading ? (<LoadingBox></LoadingBox>)
             :
@@ -24,6 +24,7 @@ export default function HomeScreen(){
               
           </div>}
         </div>
+        
         
     )
 }

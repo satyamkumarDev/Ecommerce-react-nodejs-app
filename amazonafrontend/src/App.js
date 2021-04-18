@@ -14,6 +14,8 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './component/PrivateRoute';
+import ResetPasswordScreen from './screens/ResetPasswordScreen';
+import CreatePasswordScreen from './screens/CreatePasswordScreen';
 function App() {
 
   const dispatch=useDispatch()
@@ -42,7 +44,7 @@ function App() {
                 <div className="dropdown">
                 <Link to="#">{userInfo.name}<i className="fa fa-caret-down"></i></Link>
                 <ul className="dropdown-content">
-                  <li><Link to="/profile">User Peofile</Link></li>
+                  <li><Link to="/profile">User Profile</Link></li>
                   <li> <Link to="/orderhistory">Order History</Link></li>
                   <li><Link to="/signin" onClick={signoutHandler}> Sign Out</Link></li>
                 </ul>
@@ -77,6 +79,8 @@ function App() {
         </div>
     </header>
     <main>
+    <Route path="/forgot-password/:token" component={CreatePasswordScreen}></Route>
+      <Route path="/forgot-password" component={ResetPasswordScreen} exact></Route>
       <Route path="/cart/:id?" component={CartScreen}></Route>
       <Route path="/product/:id" component={ProductScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
@@ -88,7 +92,6 @@ function App() {
       <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
       <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
       <Route path="/" component={HomeScreen} exact></Route>
-      
     </main>
     <footer className="row center">
         All right reserved
